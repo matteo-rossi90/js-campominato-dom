@@ -72,6 +72,16 @@ h1{
 /* regola per fare in modo che al click le celle si colorino di azzurro */
 
 .clicked{
-    background-color:aqua;
-    color: black;
+    /* background-color:aqua; */
+    color: rgb(255, 255, 255);
+}
+
+/* classe che attiva la cella sbagliata */
+.bomb-square{
+    background-color: red;
+}
+
+/* classe che attiva la cella giusta */
+.safe-square {
+    background-color: rgb(29, 140, 23);
 }

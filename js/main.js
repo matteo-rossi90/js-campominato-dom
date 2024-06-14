@@ -52,7 +52,7 @@ playButton.addEventListener("click",
 
             // Se l'indice corrente è tra quelli selezionati casualmente, assegnare un numero casuale
             if (randomIndices.includes(i)) {
-                const randomNumber = randomNumbers.pop();
+                let randomNumber = randomNumbers.pop();
                 newDiv.dataset.randomNumber = randomNumber;
             }
 
@@ -66,9 +66,12 @@ playButton.addEventListener("click",
                     // Stampare in console il numero visibile della cella
                     console.log(newDiv.textContent);
 
-                    // Stampare in console il numero casuale assegnato (che è invisibile)
+                    // Stampare in console il numero casuale assegnato (che è invisibile) e cambiare colore
                     if (newDiv.dataset.randomNumber) {
+                        newDiv.classList.add("bomb-square");
                         console.log(newDiv.dataset.randomNumber);
+                    } else if (!newDiv.dataset.randomNumber){
+                        newDiv.classList.add( "safe-square");
                     }
                 }
             );
