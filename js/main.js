@@ -18,12 +18,31 @@ const playButton = document.getElementById("btn");
 // Selezionare il contenitore
 const container = document.getElementById("grid");
 
+//selezionare l'intestazione che raccoglierà il messaggio da comunicare se il giocatore ha perso
+let messageText = document.getElementById("message-container");
+
+// Variabile per il punteggio del giocatore
+let score = 0;
+
+// Variabile per il controllo del termine del gioco
+let gameOver = false;
+
+// Punteggio massimo per terminare il gioco
+const maxScore = 84;
+
 // Creare un evento che al click dell'utente sul pulsante faccia visualizzare la griglia
 playButton.addEventListener("click", 
     
     function () {
         // Rimuovere la griglia ed evitare che si ripeta al click del pulsante
         container.innerHTML = '';
+
+        //cancella il testo che appare in alto se presente;
+        messageText.innerHTML = '';
+
+        // Ripristinare lo stato del gioco e il punteggio
+        gameOver = false;
+        score = 0;
 
         // Creare un array con i numeri da 1 a 100 (per i numeri visibili)
         const visibleNumbers = Array.from({ length: 100 }, (_, index) => index + 1);
@@ -60,19 +79,37 @@ playButton.addEventListener("click",
             newDiv.addEventListener("click", 
                 
                 function () {
+
+                    // Se il gioco è già terminato, non fare nulla
+                    if (gameOver) return;
+                    
                     // Aggiungere la classe "clicked" e fare in modo che una cella cliccata cambi colore
                     newDiv.classList.add("clicked");
 
                     // Stampare in console il numero visibile della cella
                     console.log(newDiv.textContent);
 
-                    // Stampare in console il numero casuale assegnato (che è invisibile) e cambiare colore
+                    // Stampare in console il numero casuale assegnato (che è invisibile), cambiare colore
+                    //e comunicare al giocatore se ha perso
                     if (newDiv.dataset.randomNumber) {
-                        newDiv.classList.add("bomb-square");
-                        console.log(newDiv.dataset.randomNumber);
-                    } else if (!newDiv.dataset.randomNumber){
-                        newDiv.classList.add( "safe-square");
+                        newDiv.classList.add("bomb-square"); // Aggiunge classe per colore rosso
+                        gameOver = true;
+                        messageText.innerHTML = `Hai perso! Il tuo punteggio è: ${score}`;
+                    } else if (!newDiv.dataset.randomNumber) {
+                        
+                        // Se è una cella "sicura", aumenta il punteggio e aggiorna la visualizzazione
+                        newDiv.classList.add("safe-square"); // Aggiunge classe per colore verde
+                        score++;
+                        console.log("Punteggio attuale:", score);
+                    
                     }
+
+                    // Verifica se il giocatore ha raggiunto il punteggio massimo
+                    if (score === maxScore) {
+                        gameOver = true;
+                        messageText.innerHTML = `Complimenti! Hai raggiunto il punteggio massimo di ${maxScore} punti!`
+                    }
+                    
                 }
             );
 

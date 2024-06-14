@@ -83,5 +83,10 @@ h1{
 
 /* classe che attiva la cella giusta */
 .safe-square {
-    background-color: rgb(29, 140, 23);
+    background-color: rgb(23, 76, 140);
+}
+
+/* proprietà che regola il testo in alto che appare quando il giocatore ha perso o ha vinto */
+#message-container{
+    color: white;
 }
