@@ -1,0 +1,77 @@
+/* regole principali */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* regole principali */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #011627;
+}
+
+#container {
+    margin: 30px 0;
+}
+
+h1{
+    color: white;
+    margin: 10px 0;
+}
+
+#box-grid {
+    padding: 25px;
+    height: 100%;
+    width: 45%;
+    margin: 0 auto;
+    text-align: center;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+#grid{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+/* regole bottone che avvia il gioco */
+#btn{
+    margin: 30px 0;
+    cursor: pointer;
+    padding: 8px 16px;
+    background-color: dodgerblue;
+    font-size: 20px;
+    color: white;
+    font-weight: 800;
+    border:none;
+    border-radius: 50px;
+}
+
+/* regole per impostare le celle */
+.square {
+    width: calc(100% / 10);
+    padding: 20px;
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    cursor: pointer;
+
+}
+
+/* regola per fare in modo che al click le celle si colorino di azzurro */
+
+.clicked{
+    background-color:aqua;
+    color: black;
+}
