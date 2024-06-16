@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- link css -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Campo minato</title>
+</head>
+<body>
+    
+    <div id="container">
+    
+        <div id="box-grid">
+
+            <h1>Gioca a campo minato</h1>
+
+            <!-- testo per comunicare il game over e il punteggio finale -->
+            <h2 id="message-container"></h2>
+
+            <form action="#">
+
+                <!-- form per stabilire il livello di difficoltà -->
+                <select name="" id="choice-difficult">
+                    <option value=""></option>
+                    <option value="facile">facile</option>
+                    <option value="medio">medio</option>
+                    <option value="difficile">difficile</option>
+                </select>
+                <!-- pulsante per avviare la griglia -->
+                <button id="btn">Gioca ora</button>
+
+            </form>
+    
+            <!-- griglia con celle -->
+            <div id="grid"></div>
+    
+        </div>
+    
+    </div>
+
+    <!-- link js -->
+     <script type ="text/javascript" src="js/main.js"></script>
+</body>
+</html>

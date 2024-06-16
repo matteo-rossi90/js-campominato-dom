@@ -1,0 +1,119 @@
+/* regole principali */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #011627;
+}
+
+#container {
+    margin: 30px 0;
+}
+
+h1{
+    color: white;
+    margin: 10px 0;
+}
+
+#box-grid {
+    padding: 25px;
+    height: 100%;
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#grid{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+form{
+    display: flex;
+    justify-content:center;
+    gap: 10px;
+}
+
+#choice-difficult{
+    width: 40%;
+    margin: 30px 0;
+}
+
+h1 {
+    color: white;
+    margin: 10px 0;
+}
+
+
+/* regole bottone che avvia il gioco */
+#btn{
+    margin: 30px 0;
+    cursor: pointer;
+    padding: 8px 16px;
+    background-color: dodgerblue;
+    font-size: 15px;
+    color: white;
+    font-weight: 800;
+    border:none;
+    border-radius: 10px;
+}
+
+/* regole generali celle */
+.square-easy,
+.square-medium,
+.square-hard{
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+}
+
+
+/* regole per impostare le celle (easy mode) */
+.square-easy {
+    width: calc(100% / 10);
+    padding: 15px;
+
+}
+
+/* regole per impostare le celle (medium mode) */
+.square-medium {
+    width: calc(100% / 9);
+    padding: 20px;
+
+}
+
+/* regole per impostare le celle (hard mode) */
+.square-hard {
+    width: calc(100% / 7);
+    padding: 25px;
+
+}
+
+/* regola che attiva il click delle celle */
+
+.clicked {
+    /* background-color:aqua; */
+    color: rgb(255, 255, 255);
+}
+
+/* classe che attiva la cella sbagliata */
+.bomb-square {
+    background-color: red;
+}
+
+/* classe che attiva la cella giusta */
+.safe-square {
+    background-color: rgb(23, 76, 140);
+}
+
+/* proprietà che regola il testo in alto che appare quando il giocatore ha perso o ha vinto */
+#message-container {
+    color: white;
+}
+
+
