@@ -49,11 +49,11 @@ playButton.addEventListener("click",
         //creare le condizioni affinché si possa materializzare la griglia
         //in base al livello di difficoltà scelto
         if (game === 'facile') {// se il livello è facile, si crea una griglia 10x10
-            createGrid(10, "square-easy");
+            createGridPlay(10, "square-easy");
         } else if (game === 'medio') {// se il livello è medio, si crea una griglia 9x9
-            createGrid(9, "square-medium");
+            createGridPlay(9, "square-medium");
         } else if (game === 'difficile') {// se il livello è difficile, si crea una griglia 7x7
-            createGrid(7, "square-hard");
+            createGridPlay(7, "square-hard");
         }
         
     }
@@ -103,10 +103,24 @@ function randomRange(min, max) {
 
     return newArr
 
+};
+
+// Funzione per mostrare tutte le bombe
+function showAllBombs() {
+
+    //individuare il contenitore delle caselle errate
+    const allCells = container.querySelectorAll("div");
+
+    //ripetere per il numero di volte in cui sono presenti
+    for (let i = 0; i < allCells.length; i++) {
+        if (allCells[i].dataset.randomNumber) {
+            allCells[i].classList.add("bomb-square");
+        }
+    }
 }
 
 // Funzione per creare una griglia di dimensione specifica a cui associare 
-function createGrid(size, className) {
+function createGridPlay(size, className) {
 
     // calcolare il numero di celle
     let numCells = size * size;
@@ -154,13 +168,16 @@ function createGrid(size, className) {
 
                 // Se il gioco è già terminato, non fare nulla
                 if (gameOver) return;
+
                 // Stampare in console il numero casuale assegnato (che è invisibile), cambiare colore
                 //e comunicare al giocatore se ha perso
                 
                 if (newDiv.dataset.randomNumber) {
                     newDiv.classList.add("bomb-square"); // Aggiunge classe per colore rosso
+                    showAllBombs(); // se il giocatore clicca sulla prima casella errata, verranno mostrate tutte le caselle rosse
                     gameOver = true;
                     messageText.innerHTML = `Hai perso! Il tuo punteggio è: ${score}`;
+
                 } else if (!newDiv.dataset.randomNumber) {
 
                     // Se è una cella "sicura", aumenta il punteggio e aggiorna la visualizzazione
